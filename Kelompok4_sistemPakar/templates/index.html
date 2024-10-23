@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosa Demam Berdarah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .gejala-item {
+            margin: 10px 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pilih Gejala</h1>
+        <form action="/submit" method="POST">
+            {% for gejala in gejala_list %}
+                <div class="gejala-item">
+                    <input type="checkbox" name="gejala" value="{{ gejala[0] }}"> {{ gejala[1] }}
+                </div>
+            {% endfor %}
+            <button type="submit">Submit Diagnosa</button>
+        </form>
+    </div>
+</body>
+</html>
